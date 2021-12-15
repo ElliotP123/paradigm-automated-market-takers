@@ -1,0 +1,19 @@
+version: '3'
+services:
+  # FSPD Auto Maker Takers
+  # Test
+  fspd-auto-taker-test-1:
+     image: elliotp1234/fspdautotaker:latest
+     deploy:
+      restart_policy:
+        condition: on-failure
+     environment:
+     - PYTHONUNBUFFERED=1
+     - PARADIGM_ENVIRONMENT=TEST
+     - LOGGING_LEVEL=INFO
+     - PARADIGM_TAKER_ACCOUNT_NAME=<venue-api-key-name-on-paradigm>
+     - PARADIGM_TAKER_ACCESS_KEY=<access-key>
+     - PARADIGM_TAKER_SECRET_KEY=<secret-key>
+     - ORDER_NUMBER_PER_STRATEGY=1
+     - ORDER_SUBMISSION_LOWER_BOUNDARY=1
+     - ORDER_SUBMISSION_HIGHER_BOUNDARY=2
